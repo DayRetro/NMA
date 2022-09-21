@@ -5,11 +5,12 @@
     font-family: sans-serif;
 }
 body {
-    background: linear-gradient(to right,#cb232c, #ce1d61);
+    background-color: #fff;
 }
 
 .header{
-    background-color: #1b3039;
+    background: #417690;
+    color: #ffc;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -23,7 +24,7 @@ body {
 .header .logo img{
     height: 70px;
     width: auto;
-    transition: all 0.3s;    
+    transition: all 0.3s;
 }
 .header .logo img:hover{
     transform: scale(1.2);

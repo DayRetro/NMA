@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
+    'material',
+    'material.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'principal',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +79,15 @@ WSGI_APPLICATION = 'NoMasAccidentes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'login',
+        'USER': 'joaco1',
+        'PASSWORD': '1234',
+        'HOSTI':'localhost',
+        'PORT': '',
+        'OPTIONS':{
+            'driver': 'ODBC Driver 13 for SQL Server',
+        }
     }
 }
 
@@ -100,11 +110,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+PASSWORD_HASHERS = ['django.contrib.auth.hashers.UnsaltedMD5PasswordHasher']
+AUTH_PASSWORD_VALIDATORS = []
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
 
@@ -119,8 +131,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL='inicio'
+
+LOGOUT_REDIRECT_URL='login'
+
+MATERIAL_ADMIN_SITE = {
+    'MAIN_BG_COLOR':  'red',  # Admin site main color, css color should be specified
+
+}

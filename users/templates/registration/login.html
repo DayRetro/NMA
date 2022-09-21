@@ -1,0 +1,26 @@
+{% extends "inicio.html" %}
+
+{% block title %} Inicio de Sesión {% endblock %}
+
+
+
+{% block content %}
+
+<div class="contenedor">
+    <form method="post">
+        {% csrf_token %}
+        <h1 class="title" style="text-align:center">Inicio de Sesión</h1><br>
+        <label for="">
+            <i class="fa-solid fa-user"></i>
+            <input placeholder="usuario" type="text" id="usuario" name="username">
+        </label>
+        <label for="">
+            <i class="fa-solid fa-lock"></i>
+            <input placeholder="contraseña" type="password" id="usuario" name="password">
+        </label>
+        <button id="boton" type="submit">Iniciar sesión</button>
+    </form>
+</div>
+<br>
+
+{% endblock %}
